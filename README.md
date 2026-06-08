@@ -26,7 +26,7 @@ start NotebookDLL.sln
 
 In Visual Studio: set the configuration to **x64**, then **Ctrl+Shift+B** to build. This produces `Notebook.dll` at the repo root.
 
-Then launch FlexSim, open any model, open the **FlexScript Console** (View → Other), type `addnotebook`, and press Enter. The panel appears docked next to your 3D view; drag its tab to dock wherever. It reopens automatically when you reload that model.
+Then launch FlexSim, open any model, open the **Toolbox**, and double-click **Notebook**. The panel appears docked next to your 3D view; drag its tab to dock wherever. It reopens automatically when you reload that model.
 
 **Permission denied on `git clone`?** Run PowerShell as administrator.
 **`LNK1104: cannot open file 'Notebook.dll'`?** FlexSim is holding the old DLL — close FlexSim entirely and rebuild.
