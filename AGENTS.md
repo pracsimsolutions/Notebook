@@ -8,7 +8,7 @@
 
 ## 1. What this is
 
-PracSim Notebook is a FlexSim 2026 module: a tabbed notebook (Scoping / Notes / Board / Canvases / Validation) that lives inside the FlexSim 3D modeler. Its UI is HTML/JS/CSS embedded inside a FlexSim "WebPanel" (Chromium Embedded Framework). All state persists in the FlexSim tree under per-tab nodes (`>variables/tabs/<name>` plus `>variables/settings`), so the notebook travels with the `.fsm` file. Export/Import JSON moves content between models.
+PracSim Notebook is a FlexSim module: a tabbed notebook (Scoping / Notes / Board / Canvases / Validation) that lives inside the FlexSim 3D modeler. (This branch targets FlexSim 2026; future-version support, if any, will live on sibling branches.) Its UI is HTML/JS/CSS embedded inside a FlexSim "WebPanel" (Chromium Embedded Framework). All state persists in the FlexSim tree under per-tab nodes (`>variables/tabs/<name>` plus `>variables/settings`), so the notebook travels with the `.fsm` file. Export/Import JSON moves content between models.
 
 This file documents how the pieces fit together and how to add new functionality without breaking the existing assumptions.
 

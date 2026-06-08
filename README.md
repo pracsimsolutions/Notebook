@@ -6,7 +6,9 @@
 >
 > **Curious? Have a suggestion? Found a bug?** Email Josh at **<josh@pracsimsolutions.com>** — happy to hear from you.
 
-A tabbed notebook that lives inside FlexSim 2026's 3D modeler. Five tabs — **Scoping**, **Notes**, **Board** (Kanban), **Canvases** (drawing surface), and **Validation** (per-run capture of model inputs/outputs/observations) — all docked next to your 3D view. Everything you write persists inside the `.fsm` model file, so your notes travel with the model.
+A tabbed notebook that lives inside FlexSim's 3D modeler. Five tabs — **Scoping**, **Notes**, **Board** (Kanban), **Canvases** (drawing surface), and **Validation** (per-run capture of model inputs/outputs/observations) — all docked next to your 3D view. Everything you write persists inside the `.fsm` model file, so your notes travel with the model.
+
+> **Supported FlexSim version:** this branch currently targets **FlexSim 2026**. Support for other versions will live on separate branches as they're added — for now, `main` is the 2026 branch.
 
 **Released under the [MIT License](LICENSE.txt) — clone, build, modify, ship. No installer, no activation, no telemetry.**
 
@@ -14,7 +16,7 @@ A tabbed notebook that lives inside FlexSim 2026's 3D modeler. Five tabs — **S
 |---|---|
 | **Status** | Working — five tabs (Scoping, Notes, Board, Canvases, Validation), per-tab undo, JSON export/import, HTML export. |
 | **License** | MIT |
-| **Platform** | Windows-only (FlexSim 2026 required). |
+| **Platform** | Windows-only (FlexSim required). |
 | **Build** | Visual Studio 2022 (C++ desktop workload) + Node.js 20+. |
 
 ---
@@ -24,7 +26,7 @@ A tabbed notebook that lives inside FlexSim 2026's 3D modeler. Five tabs — **S
 This walkthrough is written assuming you've used FlexSim before but are not a daily software developer. If you've never touched Git, never opened Visual Studio, never typed in PowerShell — that's fine. Each step explains what's happening and what success looks like.
 
 You'll get the most out of Notebook if you:
-- Use **FlexSim 2026** for actual modeling work.
+- Use **FlexSim** for actual modeling work (see the supported-version note above).
 - Are comfortable installing Windows applications (you'll install three).
 - Are willing to read a screen of plain text now and then.
 - Have **about 30 minutes** for first-time setup. (There's no AI-provider account step here, so this is shorter than ModelerAI's setup.)
@@ -57,7 +59,7 @@ Notebook is a small C++ DLL plus a plain HTML viewer. The C++ DLL ([`NotebookDLL
 
 Install these in any order. Skip any you already have.
 
-- **FlexSim 2026** — get it from [flexsim.com](https://www.flexsim.com/) and install it. You need a working FlexSim license to use FlexSim itself; Notebook doesn't get in the middle of that.
+- **FlexSim** (the version this branch supports — see the note at the top) — get it from [flexsim.com](https://www.flexsim.com/) and install it. You need a working FlexSim license to use FlexSim itself; Notebook doesn't get in the middle of that.
 - **Visual Studio 2022 — Community Edition** is free. Get it from [visualstudio.microsoft.com/vs/community](https://visualstudio.microsoft.com/vs/community/).
   - When the installer asks **which workloads to install**, tick **"Desktop development with C++"**. That's the box you need. Don't tick Visual Studio Code — that's a different smaller program; we need the full Visual Studio 2022.
   - The C++ workload is ~10 GB. Make sure you have room.
@@ -132,7 +134,7 @@ If something else goes wrong, [email Josh](mailto:josh@pracsimsolutions.com) —
 
 ### Step 4 — Open FlexSim and start the panel
 
-1. Launch **FlexSim 2026** the normal way.
+1. Launch **FlexSim** the normal way.
 2. Open or create any model — even a brand-new empty one is fine for a first test.
 3. From the menu bar, go to **View → Other → FlexScript Console** (the menu name might be slightly different in your FlexSim version; look for "FlexScript Console" anywhere in View / Tools / Window).
 4. A small window appears with a text area. Click in it, type:
