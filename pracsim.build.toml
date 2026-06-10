@@ -9,6 +9,12 @@ url            = "https://github.com/pracsimsolutions/Notebook"
 upgrade_code         = "10175053-2461-4D1E-BDEB-4451A8A89117"
 component_guid_prefix = "39DDFA8F-20BD-4843-8A83-EB0B84D6B"
 
+[brand]
+icon_svg     = "notebook.svg"
+banner_svg   = "installer/notebook-banner.svg"
+dialog_svg   = "installer/notebook-dialog.svg"
+toolbox_png  = "bitmaps/notebook.png"
+
 [flexsim]
 default_version_dir = "FlexSim 2026"
 
@@ -16,7 +22,9 @@ default_version_dir = "FlexSim 2026"
 files = [
     "Notebook.t",
     "Notebook.dll",
-    "Notebook.png",
     "LICENSE.txt",
     "README.md",
 ]
+# NOTE: do NOT list Notebook.png here. The builder auto-stages the toolbox
+# PNG as Notebook.png from [brand].toolbox_png (reserved component GUID 901).
+# Listing it again produces a duplicate File / component error from WiX.
