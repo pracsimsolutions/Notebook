@@ -9,11 +9,8 @@ url            = "https://github.com/pracsimsolutions/Notebook"
 upgrade_code         = "10175053-2461-4D1E-BDEB-4451A8A89117"
 component_guid_prefix = "39DDFA8F-20BD-4843-8A83-EB0B84D6B"
 
-[brand]
-icon_svg     = "notebook.svg"
-banner_svg   = "installer/notebook-banner.svg"
-dialog_svg   = "installer/notebook-dialog.svg"
-toolbox_png  = "Notebook.png"
+[flexsim]
+default_version_dir = "FlexSim 2026"
 
 [payload]
 files = [
@@ -23,4 +20,3 @@ files = [
     "LICENSE.txt",
     "README.md",
 ]
-subdirs = []
