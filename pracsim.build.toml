@@ -1,39 +1,21 @@
 [product]
 name           = "Notebook"
 display_name   = "PracSim Notebook"
-description    = "PracSim Notebook — a tabbed notebook docked inside FlexSim's 3D modeler (Scoping, Notes, Board, Canvases, Validation). Notes persist inside the .fsm model file."
+description    = "PracSim Notebook — a tabbed notebook docked inside FlexSim's 3D modeler."
 url            = "https://github.com/pracsimsolutions/Notebook"
 
-# version + FlexSim install directory are supplied per-build via the
-# wizard or via --version / --flexsim-version on the CLI. See
-# module-builder/docs/manifest-schema.md.
-
 [wix]
-# FIXED FOREVER. Both GUIDs identify this product across all future versions;
-# changing them breaks MSI upgrade behavior. The component_guid_prefix is
-# 33 chars; module-builder appends a 3-digit suffix per payload file.
-# Generated fresh when the toml was reintroduced into the open-source repo;
-# no prior installer with different GUIDs is known to exist in the wild.
+# FIXED FOREVER. Changing either GUID breaks MSI in-place upgrades.
 upgrade_code         = "10175053-2461-4D1E-BDEB-4451A8A89117"
 component_guid_prefix = "39DDFA8F-20BD-4843-8A83-EB0B84D6B"
 
 [brand]
-# Notebook.svg / installer banner+dialog SVGs aren't authored yet — the
-# module-builder reads these paths when generating the installer, so
-# add the assets at these locations before producing an installer build.
 icon_svg     = "notebook.svg"
 banner_svg   = "installer/notebook-banner.svg"
 dialog_svg   = "installer/notebook-dialog.svg"
-# Notebook.png is the 16×16 toolbox bitmap. Unlike RouteGraph / PSSLM, it
-# lives at the module root rather than under bitmaps/, because Notebook.fsx
-# references it as `modules\Notebook\Notebook.png` (see fsx nodes for
-# bitmap / menuBitmap). Keeping it at root means no extra subdir to ship.
 toolbox_png  = "Notebook.png"
 
 [payload]
-# APPEND ONLY. Each entry maps to one WiX <Component>.
-# Notebook.png is listed here (not via [payload].subdirs) because it lives
-# at the module root, matching how the .fsx references it.
 files = [
     "Notebook.t",
     "Notebook.dll",
@@ -41,8 +23,4 @@ files = [
     "LICENSE.txt",
     "README.md",
 ]
-# No extra subdirs. Notebook has no toolbar bitmaps, no custom cursors, and
-# the webview HTML is baked into Notebook.fsx (and therefore into Notebook.t)
-# by tools/embed.js — the webview/ source dir is dev-time only and must not
-# ship in the installer.
 subdirs = []
