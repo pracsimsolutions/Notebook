@@ -40,10 +40,26 @@ std::string snapshotModelState() {
 
             // findParameter returns the row node; rank 2 is the CV node.
             treenode rowNode = ParameterTable::findParameter(pname.c_str());
-            treenode cvNode  = rowNode ? rowNode->subnodes[2] : nullptr;
 
-            Variant rawValue  = cvNode ? cvNode->value      : Variant();
-            Variant evalValue = cvNode ? cvNode->evaluate() : Variant();
+            // The CV node's own scalar value is NOT the parameter's value —
+            // ConstrainedVariable is an engine-internal type, and reading
+            // cvNode->value / cvNode->evaluate() returns a constant type code
+            // (2) for every parameter. Read the value the way FlexScript users
+            // do, bridging through the engine like the PM path below:
+            //   Model.parameters["Name"].value
+            Variant rawValue;
+            if (rowNode) {
+                std::string expr = "return Model.parameters[\"";
+                for (char c : pname) {
+                    if (c == '\\' || c == '"') expr += '\\';
+                    expr += c;
+                }
+                expr += "\"].value;";
+                rawValue = executestring(expr.c_str());
+            }
+            // Plain numeric/string parameters resolve to the same evaluated
+            // value; expose both fields for the webview's snapshot schema.
+            Variant evalValue = rawValue;
 
             // Units and description are accessed by subnode name, matching
             // the FlexScript pattern: row.subnodes["Display Units"].value
