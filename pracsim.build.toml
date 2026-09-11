@@ -12,6 +12,23 @@ component_guid_prefix = "39DDFA8F-20BD-4843-8A83-EB0B84D6B"
 [flexsim]
 default_version_dir = "FlexSim 2026"
 
+# RESTORED 2026-09-11. Deleted by 811b5a4 ("Fix toml parse error: drop empty
+# subdirs, drop brand block, add flexsim") on 2026-06-10 -- but the parse error
+# was the stray `subdirs = []` that sat inside this block (empty, and belonging
+# to [payload], not here). Dropping all four brand keys to remove one bad line
+# left the module unbuildable: preflight requires every one of them, so every
+# Notebook build since has failed before producing anything.
+#
+# toolbox_png is CORRECTED, not restored: the old value was "Notebook.png",
+# which resolves to brand/Notebook.png and does not exist. The real asset is
+# brand/bitmaps/notebook.png, the same convention every other module uses.
+# All four paths are relative to pracsim-platform/brand/.
+[brand]
+icon_svg     = "notebook.svg"
+banner_svg   = "installer/notebook-banner.svg"
+dialog_svg   = "installer/notebook-dialog.svg"
+toolbox_png  = "bitmaps/notebook.png"
+
 # [payload].root (optional, omitted here)
 #   This module ships the files as they sit in this working tree, so there is
 #   nothing to declare. A module whose shipped bytes DIFFER from its source --
@@ -28,7 +45,11 @@ default_version_dir = "FlexSim 2026"
 files = [
     "Notebook.t",
     "Notebook.dll",
-    "Notebook.png",
+    # Notebook.png REMOVED 2026-09-11: it is AUTO-STAGED from [brand].toolbox_png
+    # and already installed by installer.template.wxs as cmp_toolbox_png, so
+    # listing it here emitted a second component for the same installed file.
+    # Removing it also restores LICENSE.txt/README.md to the component GUIDs
+    # that shipped in v26.0.1 -- adding this entry had shifted them to 004/005.
     "LICENSE.txt",
     "README.md",
 ]
