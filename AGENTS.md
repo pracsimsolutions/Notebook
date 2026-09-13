@@ -1,5 +1,9 @@
 # AGENTS.md — guide for anyone (human or AI) extending PracSim Notebook
 
+## RELEASE BRANCH RULE (highest priority)
+
+New work happens on `main`. Every FlexSim release has its own branch named `year.release` (`2026.0`, `2027.0`, `2027.1`), and installers are built only from those branches. Before committing, pushing, or building a release, confirm the checked-out branch matches the FlexSim version of the folder you're in and the module version's line (`26.0.x` → `2026.0`). If they don't match, stop and ask. module-builder refuses builds from `main`, detached HEAD, a dirty tree, or a mismatched branch.
+
 > If you're an AI assistant working in this repo, read this file first. If you're a human picking this up to keep extending it, same. This is the deep-dive for everyone past the README — it documents the build pipeline (especially the non-obvious `webview → embed.js → .fsx` flow), the JS↔DLL bridge architecture, where each kind of thing lives in the source tree, recipes for common extension tasks, and the FlexScript/HTML gotchas that previous contributors have paid for in blood.
 >
 > Keep this file up to date as you make changes. If you introduce a new convention, gotcha, or extension pattern, add it here.

@@ -9,9 +9,6 @@ url            = "https://github.com/pracsimsolutions/Notebook"
 upgrade_code         = "10175053-2461-4D1E-BDEB-4451A8A89117"
 component_guid_prefix = "39DDFA8F-20BD-4843-8A83-EB0B84D6B"
 
-[flexsim]
-default_version_dir = "FlexSim 2026"
-
 # RESTORED 2026-09-11. Deleted by 811b5a4 ("Fix toml parse error: drop empty
 # subdirs, drop brand block, add flexsim") on 2026-06-10 -- but the parse error
 # was the stray `subdirs = []` that sat inside this block (empty, and belonging
