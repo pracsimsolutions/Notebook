@@ -225,3 +225,12 @@ Update this file. Specifically:
 - If you changed where something lives in the tree, update "Per-tab persistence model."
 
 The goal: this file should be the place an AI session can read once and have enough context to make a safe, well-shaped change without rediscovering everything by grep.
+
+## Documentation: every module has a manual
+
+Every PracSim module has online documentation, so every module keeps a `manual/` folder:
+`README.md` (how the manual must look), `manual.yml`, `index.md`, pages and `images/`. Read
+`manual/README.md` before writing or changing documentation. The manual is published to
+pracsimsolutions.com for each FlexSim release line and is not installed with the module. When a
+change alters what a user sees or can do, update the manual in the same change. Only manual content
+belongs in `manual/`: never publishing tools or other file types.
