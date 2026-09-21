@@ -4,6 +4,10 @@ A tabbed notebook docked inside FlexSim's 3D modeler — **Scoping**, **Notes**,
 
 > Built by an AI assistant (Claude) for Josh at [Practical Simulation Solutions](https://pracsimsolutions.com), released as MIT open source. Questions/bugs/ideas: **<josh@pracsimsolutions.com>**.
 
+## Documentation
+
+The user manual (every tab, plus how-to guides) is in [manual/](manual/index.md) and is published at [pracsimsolutions.com](https://pracsimsolutions.com). To write or change manual pages, read [manual/README.md](manual/README.md) first.
+
 ## Requirements
 
 To **use** Notebook, all you need is:
