@@ -1,2 +1,7 @@
 module: notebook
 title: PracSim Notebook
+sections:
+  - id: tabs
+    title: Tabs
+  - id: how-to
+    title: How-to Guides

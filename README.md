@@ -4,11 +4,15 @@ A tabbed notebook docked inside FlexSim's 3D modeler — **Scoping**, **Notes**,
 
 > Built by an AI assistant (Claude) for Josh at [Practical Simulation Solutions](https://pracsimsolutions.com), released as MIT open source. Questions/bugs/ideas: **<josh@pracsimsolutions.com>**.
 
+## Documentation
+
+The user manual (every tab, plus how-to guides) is in [manual/](manual/index.md) and is published at [pracsimsolutions.com](https://pracsimsolutions.com). To write or change manual pages, read [manual/README.md](manual/README.md) first.
+
 ## Requirements
 
 To **use** Notebook, all you need is:
 
-- **FlexSim 2026** (Windows) with a valid FlexSim license
+- **FlexSim 2027** (Windows) with a valid FlexSim license
 
 The repo ships with a prebuilt `Notebook.dll` at the repo root, so you can run it immediately — no build step required.
 
@@ -21,7 +25,7 @@ To **build** the DLL yourself (only needed if you want to test changes — see [
 ## Setup
 
 ```powershell
-cd "C:\Program Files\FlexSim 2026\modules"
+cd "C:\Program Files\FlexSim 2027\modules"
 git clone https://github.com/pracsimsolutions/Notebook.git
 ```
 
@@ -41,7 +45,7 @@ start NotebookDLL.sln
 In Visual Studio: set the configuration to **x64**, then **Ctrl+Shift+B** to build. This produces `Notebook.dll` at the repo root.
 
 **`LNK1104: cannot open file 'Notebook.dll'`?** FlexSim is holding the old DLL — close FlexSim entirely and rebuild.
-**`cannot open source file BasicMacros.h`?** The repo isn't inside a FlexSim install directory — clone it into `…\FlexSim 2026\modules\`.
+**`cannot open source file BasicMacros.h`?** The repo isn't inside a FlexSim install directory — clone it into `…\FlexSim 2027\modules\`.
 
 ## Development loop
 
