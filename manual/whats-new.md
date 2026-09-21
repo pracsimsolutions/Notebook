@@ -1,12 +1,15 @@
 ---
-title: What's new
-summary: Release notes for PracSim Notebook, newest first.
+title: What's New
+summary: Release notes for each version of PracSim Notebook.
 order: 99
 ---
 
-## 27.0
+Release notes for each version of PracSim Notebook. Newest at the top.
 
-- PracSim Notebook is available for FlexSim 2027, with the Scoping, Notes, Board, Canvases and
-  Validation tabs.
-- Notebook is open source under the MIT license.
-- Notebook ships as a standalone installer for FlexSim 2027.
+## PracSim Notebook 27.0.0 (September 21, 2026)
+
+PracSim Notebook 27.0.0 released.
+
+## PracSim Notebook 26.0.0 (September 21, 2026)
+
+PracSim Notebook 26.0.0 released.
