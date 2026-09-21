@@ -9,44 +9,22 @@ url            = "https://github.com/pracsimsolutions/Notebook"
 upgrade_code         = "10175053-2461-4D1E-BDEB-4451A8A89117"
 component_guid_prefix = "39DDFA8F-20BD-4843-8A83-EB0B84D6B"
 
-# RESTORED 2026-09-11. Deleted by 811b5a4 ("Fix toml parse error: drop empty
-# subdirs, drop brand block, add flexsim") on 2026-06-10 -- but the parse error
-# was the stray `subdirs = []` that sat inside this block (empty, and belonging
-# to [payload], not here). Dropping all four brand keys to remove one bad line
-# left the module unbuildable: preflight requires every one of them, so every
-# Notebook build since has failed before producing anything.
-#
-# toolbox_png is CORRECTED, not restored: the old value was "Notebook.png",
-# which resolves to brand/Notebook.png and does not exist. The real asset is
-# brand/bitmaps/notebook.png, the same convention every other module uses.
-# All four paths are relative to pracsim-platform/brand/.
+# Installer artwork. The names below are resolved against the maintainers'
+# brand asset folder when an installer is built; they are not files in this
+# repo, and they are not needed to build or run the module itself.
 [brand]
 icon_svg     = "notebook.svg"
 banner_svg   = "installer/notebook-banner.svg"
 dialog_svg   = "installer/notebook-dialog.svg"
 toolbox_png  = "bitmaps/notebook.png"
 
-# [payload].root (optional, omitted here)
-#   This module ships the files as they sit in this working tree, so there is
-#   nothing to declare. A module whose shipped bytes DIFFER from its source --
-#   comment-stripped scripts, a compiled exe replacing a script, build output that
-#   must not travel -- prepares a clean payload folder with its own tooling and
-#   names it here:
-#
-#       root = "dist/preflight-staged"
-#
-#   `files` and `subdirs` are then read from that folder instead of this one. If
-#   it's declared and missing, the build STOPS rather than falling back to the
-#   working tree. See docs/manifest-schema.md in module-builder.
 [payload]
+# What an installer ships. APPEND ONLY.
+# Notebook.png is NOT listed: it is staged automatically from
+# [brand].toolbox_png, and listing it here would install the same file twice.
 files = [
     "Notebook.t",
     "Notebook.dll",
-    # Notebook.png REMOVED 2026-09-11: it is AUTO-STAGED from [brand].toolbox_png
-    # and already installed by installer.template.wxs as cmp_toolbox_png, so
-    # listing it here emitted a second component for the same installed file.
-    # Removing it also restores LICENSE.txt/README.md to the component GUIDs
-    # that shipped in v26.0.1 -- adding this entry had shifted them to 004/005.
     "LICENSE.txt",
     "README.md",
 ]

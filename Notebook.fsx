@@ -9488,7 +9488,7 @@ else return applicationcommand("undockwindow", c, 0, dropx(), dropy());</data></
             '&lt;hr class="about-divider" /&gt;' +
             '&lt;div class="about-footer"&gt;' +
               '© Practical Simulation Solutions LLC&lt;br&gt;' +
-              'No installer, no activation, no telemetry.' +
+              'No activation, no telemetry.' +
             '&lt;/div&gt;' +
             '&lt;button class="about-close" id="about-close-btn"&gt;Close&lt;/button&gt;' +
           '&lt;/div&gt;' +

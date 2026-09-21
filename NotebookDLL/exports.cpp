@@ -4,7 +4,7 @@
 // applicationcommand("Notebook_<name>") and from the WebPanel JS via
 // fireFlexsimEvent("Notebook_<name>", ...).
 //
-// Pattern matches RouteGraph's module.cpp exactly: functions live
+// Export pattern: functions live
 // inside `namespace Notebook { ... }`, declared with
 // `__declspec(dllexport)` WITHOUT `extern "C"`. FlexSim's bridge looks
 // up the C++ name-mangled symbol; an `extern "C"` decoration causes
@@ -23,8 +23,8 @@ namespace Notebook {
 
 __declspec(dllexport) Variant Notebook_loadTab(FLEXSIMINTERFACE)
 {
-    // Variant→std::string is via implicit conversion (RouteGraph
-    // pattern). An explicit (const char*) cast does NOT compile.
+    // Variant→std::string is via implicit conversion.
+    // An explicit (const char*) cast does NOT compile.
     std::string name = param(1);
     return nb::loadTab(name);
 }
