@@ -2,7 +2,7 @@
 
 ## RELEASE BRANCH RULE (highest priority)
 
-New work happens on `main`. Every FlexSim release has its own branch named `year.release` (`2026.0`, `2027.0`, `2027.1`), and installers are built only from those branches. Before committing, pushing, or building a release, confirm the checked-out branch matches the FlexSim version of the folder you're in and the module version's line (`26.0.x` → `2026.0`). If they don't match, stop and ask. module-builder refuses builds from `main`, detached HEAD, a dirty tree, or a mismatched branch.
+New work happens on the repository's **default branch**, which is the release branch for the FlexSim line you are working in (`2026.0`, `2027.0`, `2027.1`). **There is no `main` branch: it was deleted 2026-09-17.** Each release branch is both where work lands and what releases are built from. Before committing, pushing, or building a release, confirm the checked-out branch matches the FlexSim version of the folder you're in and the module version's line (`26.0.x` → `2026.0`). If they don't match, stop and ask. A release is never built from a detached HEAD, a dirty tree, or a mismatched branch.
 
 > If you're an AI assistant working in this repo, read this file first. If you're a human picking this up to keep extending it, same. This is the deep-dive for everyone past the README — it documents the build pipeline (especially the non-obvious `webview → embed.js → .fsx` flow), the JS↔DLL bridge architecture, where each kind of thing lives in the source tree, recipes for common extension tasks, and the FlexScript/HTML gotchas that previous contributors have paid for in blood.
 >
@@ -65,7 +65,6 @@ LICENSE.txt            — MIT
 README.md              — user-facing setup walkthrough
 Notebook.fsx           — the FlexSim module (XML tree with embedded HTML — generated; do not hand-edit)
 Notebook.png           — 16×16 toolbox bitmap
-Notebook.ico           — Windows icon for installers (kept for forks that want to ship binaries)
 
 webview/
   index.html           — editable source of the entire UI
@@ -103,7 +102,7 @@ Each tab serializes to its own tree node so editing one tab doesn't rewrite the 
 | App-wide settings | `>variables/settings` | same with `name="settings"` |
 | Pasted images (base64) | `>variables/images/<id>` | `Notebook_saveImage` / `Notebook_loadImages` |
 
-The path has "Notebook" twice in the actual tree (`Tools/Notebook/Notebook`) because `addnotebook` clones the library template into a container of the same name. The DLL looks it up via `Model.find("Tools/Notebook/Notebook")` then `tool.find(">variables")` (the NavAssist idiom).
+The path has "Notebook" twice in the actual tree (`Tools/Notebook/Notebook`) because `addnotebook` clones the library template into a container of the same name. The DLL looks it up via `Model.find("Tools/Notebook/Notebook")` then `tool.find(">variables")`.
 
 ### JS ↔ DLL bridge
 

@@ -1,6 +1,6 @@
 # PracSim Notebook
 
-A tabbed notebook docked inside FlexSim's 3D modeler — **Scoping**, **Notes**, **Board** (Kanban), **Canvases** (drawing), and **Validation** (per-run input/output capture). Everything you write persists inside the `.fsm` model file, so notes travel with the model. No installer, no telemetry, no network calls.
+A tabbed notebook docked inside FlexSim's 3D modeler — **Scoping**, **Notes**, **Board** (Kanban), **Canvases** (drawing), and **Validation** (per-run input/output capture). Everything you write persists inside the `.fsm` model file, so notes travel with the model. No telemetry, no network calls.
 
 > Built by an AI assistant (Claude) for Josh at [Practical Simulation Solutions](https://pracsimsolutions.com), released as MIT open source. Questions/bugs/ideas: **<josh@pracsimsolutions.com>**.
 
@@ -14,9 +14,9 @@ To **use** Notebook, all you need is:
 
 - **FlexSim 2027** (Windows) with a valid FlexSim license
 
-The repo ships with a prebuilt `Notebook.dll` at the repo root, so you can run it immediately — no build step required.
+`Notebook.dll` is not committed to this repo, so running from a clone means building it once (see [Building](#building)). To install Notebook without building anything, use its installer instead.
 
-To **build** the DLL yourself (only needed if you want to test changes — see [Building](#building)), you also need:
+To **build** the DLL you also need:
 
 - **Visual Studio 2022** with the *Desktop development with C++* workload
 - **Node.js 20+**
@@ -29,13 +29,13 @@ cd "C:\Program Files\FlexSim 2027\modules"
 git clone https://github.com/pracsimsolutions/Notebook.git
 ```
 
-Then launch FlexSim, open any model, open the **Toolbox**, and double-click **Notebook**. The panel appears docked next to your 3D view; drag its tab to dock wherever. It reopens automatically when you reload that model.
+Build `Notebook.dll` (see [Building](#building)), then launch FlexSim, open any model, open the **Toolbox**, and double-click **Notebook**. The panel appears docked next to your 3D view; drag its tab to dock wherever. It reopens automatically when you reload that model.
 
 **Permission denied on `git clone`?** Run PowerShell as administrator.
 
 ## Building
 
-The shipped `Notebook.dll` is ready to use as-is. You only need to build if you want to **test changes** to the C++ source on the `main` branch — `main` is a moving target with no tagged releases, no stable API, and breaking changes between commits.
+Building produces `Notebook.dll` at the repo root. A release branch is a moving target between releases: no stable API, and breaking changes between commits.
 
 ```powershell
 cd Notebook\NotebookDLL
