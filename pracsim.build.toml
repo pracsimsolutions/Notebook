@@ -26,5 +26,4 @@ files = [
     "Notebook.t",
     "Notebook.dll",
     "LICENSE.txt",
-    "README.md",
 ]
