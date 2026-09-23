@@ -31,8 +31,8 @@ navigation comes from its front matter (below), not from its folder.
 ## manual.yml
 
 ```yaml
-module: particles          # the product slug: lowercase, one word, must match the website
-title: PracSim Particles   # shown at the top of the navigation
+module: notebook           # the product slug: lowercase, one word, must match the website
+title: PracSim Notebook    # shown at the top of the navigation
 sections:                  # optional; groups pages in the left-hand tree
   - id: panels
     title: Property Panels
@@ -49,7 +49,7 @@ Every page starts with front matter:
 
 ```markdown
 ---
-title: Corridor
+title: Using the tabs
 summary: One sentence, shown under the title and in search results.
 section: objects
 order: 2
@@ -61,8 +61,8 @@ order: 2
 - Do not start the body with a `#` heading. The title comes from the front matter, so start
   with text or a `##` heading.
 - Links between pages are relative and end in `.md`, and they are case-sensitive:
-  `[Junction](junction.md)`, `[Emitter](../api/Particles.Emitter.md)`.
-- Images are relative files inside this folder: `![Corridor panel](images/corridor-panel.png)`
+  `[Using the tabs](tabs.md)`, `[Home](../index.md)`.
+- Images are relative files inside this folder: `![Board tab](images/board-tab.png)`
   (or `../images/...` from a subfolder). Always write alt text. External images are blocked.
   Allowed types: png, jpg, gif, webp, svg (an svg may not contain scripts).
 - Raw HTML is not rendered. Use markdown tables and lists instead.
@@ -82,8 +82,8 @@ FlexScript code goes in a fence tagged `flexscript` so it is highlighted with Fl
 
 ````markdown
 ```flexscript
-Particles.Emitter e = Model.find("ParticleEmitter1");
-e.gravity.z = -9.8;
+Object queue = Model.find("Queue1");
+queue.name = "Buffer";
 ```
 ````
 
