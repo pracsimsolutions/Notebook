@@ -9,7 +9,3 @@ Release notes for each version of PracSim Notebook. Newest at the top.
 ## PracSim Notebook 27.0.0 (September 21, 2026)
 
 PracSim Notebook 27.0.0 released.
-
-## PracSim Notebook 26.0.0 (September 21, 2026)
-
-PracSim Notebook 26.0.0 released.
